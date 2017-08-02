@@ -1,3 +1,5 @@
+<div class="text-center">
 <%= @dog.name %>
-
+<%= link_to "Book me!", new_dog_booking_path(@dog) %>
 <h4>Book <%= @dog.name %></h4>
+</div>

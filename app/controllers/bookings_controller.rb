@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     @dog = Dog.find(params[:dog_id])
     @booking.dog = @dog
     @booking.user_id = current_user.id
+    @booking.save
   end
 
   def show
