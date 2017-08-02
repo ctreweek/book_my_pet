@@ -12,8 +12,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @dog = Dog.find(params[:dog_id])
     @booking.dog = @dog
-    @booking.user_id = current_user.id
-    @booking.save
+    @booking.user = current_user
+
+    if @booking.save
+      redirect_to pages_dashboard_path
+    else
+      render:new
+    end
   end
 
   def show

@@ -14,7 +14,11 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
     @dog.user_id = current_user.id
-    @dog.save
+    if @dog.save
+      redirect_to pages_dashboard_path
+    else
+      render:new
+    end
   end
 
    private
