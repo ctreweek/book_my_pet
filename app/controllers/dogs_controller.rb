@@ -23,13 +23,12 @@ class DogsController < ApplicationController
 
   def edit
     @dog = Dog.find(params[:id])
-    redirect_to dog_path(@dog)
   end
 
   def update
     @dog =Dog.find(params[:id])
     if @dog.update_attributes(dog_params)
-        flash[:notice] = 'The dog is successfully updated!'
+        flash[:notice] = 'You have successfully updated your dog!'
         redirect_to pages_dashboard_path
     end
   end

@@ -8,14 +8,15 @@
 <% if current_user.owned_dogs.count > 0 %>
   <h3>Your Pups</h3>
   <% current_user.owned_dogs.each do |dog| %>
-  <ul>
+  <ul style="list-style: none">
     <li>
-      <%= link_to dog.name, dog_path(dog) %>
+      <p><%= dog.name %></p>
     </li>
   </ul>
+  <%= link_to "Edit info", edit_dog_path(dog) %>
   <% end %>
 <% else %>
-  <p>You don't have any dogs!</p>
+  <p>You don't have any dogs yet!</p>
 <% end %>
 </div>
 
