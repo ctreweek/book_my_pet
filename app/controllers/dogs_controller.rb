@@ -15,10 +15,29 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.user_id = current_user.id
     if @dog.save
-      redirect_to pages_dashboard_path
+      redirect_to dog_path(@dog)
     else
       render:new
     end
+  end
+
+  def edit
+    @dog = Dog.find(params[:id])
+    redirect_to dog_path(@dog)
+  end
+
+  def update
+    @dog =Dog.find(params[:id])
+    if @dog.update_attributes(dog_params)
+        flash[:notice] = 'The dog is successfully updated!'
+        redirect_to pages_dashboard_path
+    end
+  end
+
+  def destroy
+    @dog = Dog.find(params[:id])
+    @dog.destroy
+    redirect_to pages_dashboard_path
   end
 
    private

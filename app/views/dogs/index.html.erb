@@ -4,6 +4,9 @@ Browse pups!
 <ul>
 <li>
 <%= link_to dog.name, dog_path(dog) %>
+<% if dog.photo? %>
+  <%= cl_image_tag dog.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
 </li>
 </ul>
 <% end %>

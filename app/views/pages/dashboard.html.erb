@@ -6,11 +6,11 @@
 
 <div class="text-center">
 <% if current_user.owned_dogs.count > 0 %>
-  <h3>Your Pup</h3>
+  <h3>Your Pups</h3>
   <% current_user.owned_dogs.each do |dog| %>
   <ul>
     <li>
-      <%= dog.name %>
+      <%= link_to dog.name, dog_path(dog) %>
     </li>
   </ul>
   <% end %>
