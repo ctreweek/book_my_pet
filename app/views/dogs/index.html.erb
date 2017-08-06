@@ -1,20 +1,5 @@
 Browse pups!
 
-<%# @dogs.each do |dog| %>
-<!-- <div class="text-center dog-index">
- --><!-- <div> -->
-<!-- <h4> --><%#= link_to dog.name, dog_path(dog) %><!-- </h4> -->
-<!-- </div> -->
-<%# if dog.photo? %>
-<!-- <div> -->
-  <%#cl_image_tag dog.photo.path, width: 200, height: 300, crop: :fill %>
-<%# end %>
-<!-- </div>
-</div> -->
-<%# end %>
-
-
-
 <div class= "row">
   <% @dogs.each do |dog| %>
     <% if dog.photo? %>
