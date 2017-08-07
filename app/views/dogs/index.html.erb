@@ -1,6 +1,6 @@
-Browse pups!
 
-<div class= "row">
+<div class="container-dog-index">
+<div class= "row no-gutter-dog-index">
   <% @dogs.each do |dog| %>
     <% if dog.photo? %>
   <div class="col-lg-3">
@@ -10,4 +10,5 @@ Browse pups!
     <% end %>
   </div>
   <% end %>
+</div>
 </div>

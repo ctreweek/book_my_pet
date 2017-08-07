@@ -1,15 +1,46 @@
 <div class="text-center">
 
-<h2><%= @dog.name %></h2>
-<% if @dog.photo? %>
-  <%= cl_image_tag @dog.photo.path, width: 200, height: 300, crop: :fill %>
-<% end %>
-<div class="dog-info">
-<p>Age: <%= @dog.age %></p>
-<p>Breed: <%= @dog.breed %></p>
-<p>About me: <%= @dog.description %> </p>
+  <h2><%= @dog.name %></h2>
+  <% if @dog.photo? %>
+  <%= cl_image_tag @dog.photo.path, width: 200, height: 200, crop: :thumb, :radius=> :max, :format => :png%>
+  <% end %>
+  <div class="dog-info">
+    <p>Age: <%= @dog.age %></p>
+    <p>Breed: <%= @dog.breed %></p>
+    <p>About me: <%= @dog.description %> </p>
+  </div>
+  <%= link_to "Book a play date with me!", new_dog_booking_path(@dog) %>
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+    Book!
+  </button>
 </div>
 
-<%= link_to "Book a play date with me!", new_dog_booking_path(@dog) %>
-</div>
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Book a play date with <%=@dog.name%></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="row text-center">
 
+          <h3 class="text-center">Book your playdate</h3>
+          <%= simple_form_for [@dog, @booking] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit "book" %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>

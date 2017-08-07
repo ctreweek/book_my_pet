@@ -1,0 +1,23 @@
+.row.no-gutter-dog-index {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 50px;
+  margin-top: 60px;
+  padding-left: 0;
+  padding-right: 0;
+  padding: 12px;
+  position: relative;
+  .col-xs-4 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  padding-bottom: 0px;
+  img {
+    margin-bottom: 3px;
+  }
+}
+
+.container-dog-index {
+  width: 836px;
+  margin: 0 auto;
+}
