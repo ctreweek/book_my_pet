@@ -23,9 +23,12 @@
 <div class="text-center">
   <% if current_user.booked_dogs.count > 0 %>
   <h3>Your upcoming puppy play dates:</h3>
-  <% current_user.booked_dogs.each do |dog| %>
-  <%= link_to dog.name, dog_path(dog) %>
-  <% end %>
+  <% current_user.bookings.each do |booking| %>
+    <%= link_to booking.dog.name, dog_path(booking.dog) %>
+    <%= booking.start_date.to_date%>
+    <%= booking.start_date.strftime("%H:%M") %> - <%= booking.end_date.strftime("%H:%M")  %>
+  <% end  %>
+
   <% end %>
 </div>
 

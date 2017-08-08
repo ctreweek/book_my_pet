@@ -2,17 +2,15 @@
 
   <h2><%= @dog.name %></h2>
   <% if @dog.photo? %>
-  <%= cl_image_tag @dog.photo.path, width: 200, height: 200, crop: :thumb, :radius=> :max, :format => :png%>
+  <%= cl_image_tag @dog.photo.path, width: 200, height: 200, crop: :thumb, :radius=> :max %>
   <% end %>
   <div class="dog-info">
     <p>Age: <%= @dog.age %></p>
     <p>Breed: <%= @dog.breed %></p>
     <p>About me: <%= @dog.description %> </p>
   </div>
-  <%= link_to "Book a play date with me!", new_dog_booking_path(@dog) %>
-
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
-    Book!
+    Book a playdate with me!
   </button>
 </div>
 
@@ -28,7 +26,7 @@
       <div class="modal-body">
        <div class="row text-center">
 
-          <h3 class="text-center">Book your playdate</h3>
+          <h3 class="text-center">Book your play date!</h3>
           <%= simple_form_for [@dog, @booking] do |f| %>
           <%= f.input :start_date %>
           <%= f.input :end_date %>
@@ -37,9 +35,6 @@
         </div>
       </div>
 
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     </div>
   </div>
 </div>
